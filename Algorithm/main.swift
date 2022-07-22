@@ -2,37 +2,25 @@
 //  main.swift
 //  Algorithm
 //
-//  Created by 황다현 on 2022/07/18.
+//  Created by 황다현 on 2022/07/22.
 //
 
 import Foundation
 
-var a = Array(readLine()!)
-var b = Array(readLine()!)
-let filter = a.filter{b.contains($0)}
-let filter2 = b.filter{a.contains($0)}
-var count = 0
+let nm = readLine()!.split(separator: " ").map{ Int($0)! }
+let arr = readLine()!.split(separator: " ").map{ Int($0)! }
+let dp = Array(repeating: Array(repeating: 0, count: arr.count), count: arr.count)
 
-var bigArr = filter.count >= filter2.count ? filter : filter2
-let smallArr = filter.count >= filter2.count ? filter2 : filter
-
-print(smallArr)
-print(bigArr)
-
-var foundIndex = 0
-
-for i in 0..<smallArr.count {
-    for j in 0..<bigArr.count {
-        print("\(smallArr[i]) > \(bigArr[j]) = \(smallArr[i] > bigArr[j])")
-        if smallArr[i] > bigArr[j] {
-            if foundIndex <= j {
-                count += 1
-            }
-            foundIndex = j
-            bigArr.remove(at: j)
-            break
-        }
-    }
+for i in 0..<arr.count{
+    
 }
 
-print(count)
+//1,2,3,4,5
+//1+2,2+3,3+4,4+5
+//1+2+3,2+3+4,3+4+5
+//1+2+3+4,2+3+4+5
+//1+2+3+4+5
+
+//3,1+2,1+2,1+2+3,3+1+2
+
+//12,12,123,312,12312,3
